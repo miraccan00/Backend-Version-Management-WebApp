@@ -1,0 +1,39 @@
+{% extends "base/base.html" %}
+{% block content %}
+<div class="m-5">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Date</th>
+                <th>Release Artifact</th>
+                <th>Release Number</th>
+                <th>Release Path</th>
+                <th>Service Name</th>
+                <th>Version</th>
+                <th>MicroUI</th>
+                <th>SQL</th>
+                <th>UAT</th>
+                <th>Prod</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for release in releases %}
+            <tr>
+                <td style="background-color: {% if release.prod %}green{% else %}orange{% endif %}">{{ release.id }} </td>
+                <td style="background-color: {% if release.prod %}green{% else %}orange{% endif %}">{{ release.date }} </td>
+                <td style="background-color: {% if release.prod %}green{% else %}orange{% endif %}">{{ release.release_artifact }} </td>
+                <td style="background-color: {% if release.prod %}green{% else %}orange{% endif %}">{{ release.release_number }} </td>
+                <td style="background-color: {% if release.prod %}green{% else %}orange{% endif %}">{{ release.release_path }} </td>
+                <td style="background-color: {% if release.prod %}green{% else %}orange{% endif %}">{{ release.service_name }} </td>
+                <td style="background-color: {% if release.prod %}green{% else %}orange{% endif %}">{{ release.version }} </td>
+                <td style="background-color: {% if release.microui %}green{% else %}orange{% endif %}">{{ release.microui }}</td>
+                <td style="background-color: {% if release.sql %}green{% else %}orange{% endif %}">{{ release.sql }} </td>
+                <td style="background-color: {% if release.uat %}green{% else %}orange{% endif %}">{{ release.uat }} </td>
+                <td style="background-color: {% if release.prod %}green{% else %}orange{% endif %}">{{ release.prod }} </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

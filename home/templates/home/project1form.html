@@ -1,0 +1,49 @@
+{% extends "base/base.html" %}
+{% block content %}
+<div class="container">
+<form method="POST" action="{% url 'home:projectform1' %}" >
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="id_date">Date</label>
+      <input type="date" class="form-control" id="id_date" name="date" value="{{ object.date|default:'' }}">
+    </div>
+    <div class="form-group">
+      <label for="id_release_artifact">Release Artifact</label>
+      <input type="text" class="form-control" id="id_release_artifact" name="release_artifact" value="{{ object.release_artifact|default:'' }}">
+    </div>
+    <div class="form-group">
+      <label for="id_release_number">Release Number</label>
+      <input type="text" class="form-control" id="id_release_number" name="release_number" value="{{ object.release_number|default:'' }}">
+    </div>
+    <div class="form-group">
+      <label for="id_release_path">Release Path</label>
+      <input type="text" class="form-control" id="id_release_path" name="release_path" value="{{ object.release_path|default:'' }}">
+    </div>
+    <div class="form-group">
+      <label for="id_service_name">Service Name</label>
+      <input type="text" class="form-control" id="id_service_name" name="service_name" value="{{ object.service_name|default:'' }}">
+    </div>
+    <div class="form-group">
+      <label for="id_version">Version</label>
+      <input type="text" class="form-control" id="id_version" name="version" value="{{ object.version|default:'' }}">
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="id_microui" name="microui" {% if object.microui %}checked {% endif %}>
+      <label class="form-check-label" for="id_microui">Micro UI</label>
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="id_sql" name="sql" {% if object.sql %} checked {% endif %}>
+      <label class="form-check-label" for="id_sql">SQL</label>
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="id_uat" name="uat" {% if object.uat %} checked {% endif %}>
+      <label class="form-check-label" for="id_uat">UAT</label>
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="id_prod" name="prod" {% if object.prod %} checked {% endif %}>
+      <label class="form-check-label" for="id_prod">Prod</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock content %}
